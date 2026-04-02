@@ -2,7 +2,6 @@ title: Digital Guardian ARC Logs
 type: logs
 streams:
   - input: cel
-    enabled: false
     title: Digital Guardian ARC Logs
     description: Collecting Digital Guardian ARC logs via API.
     template_path: cel.yml.hbs
