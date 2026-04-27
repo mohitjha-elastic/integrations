@@ -49,7 +49,6 @@ streams:
   - input: httpjson
     title: Jira audit logs via Jira audit API
     description: Collect Jira audit logs via Jira audit API
-    enabled: false
     template_path: httpjson.yml.hbs
     vars:
       - name: api_url
