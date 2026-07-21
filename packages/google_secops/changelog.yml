@@ -5,7 +5,7 @@
         Add support for alert v2 data stream that collects data from the Chronicle API legacySearchDetections method.
         The existing alert data stream has been deprecated.
       type: enhancement
-      link: https://github.com/elastic/integrations/pull/1
+      link: https://github.com/elastic/integrations/pull/20258
 - version: "1.3.0"
   changes:
     - description: Use new `release` field for agentless deployment mode to establish as beta.
