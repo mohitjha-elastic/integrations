@@ -18,7 +18,9 @@ vars:
 data_stream:
   vars:
     url: http://{{Hostname}}:{{Port}}
+    project_id: test-project
+    location: us
+    instance_id: test-instance
     preserve_original_event: true
-    preserve_duplicate_custom_fields: true
 assert:
   hit_count: 3
