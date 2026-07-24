@@ -25,15 +25,6 @@
               description: Outcome variables from the detection rule, keyed by outcome name.
             - name: risk_score
               type: long
-            - name: risk_score
-              type: group
-              fields:
-                - name: int64_val
-                  type: long
-                - name: type
-                  type: keyword
-                - name: value
-                  type: long
             - name: rule_id
               type: keyword
               description: "Identifier for the rule generating the detection."

@@ -643,7 +643,7 @@
                 },
                 "panelIndex": "22679e22-be09-4425-9b59-4f26d23fc230",
                 "panelRefName": "panel_22679e22-be09-4425-9b59-4f26d23fc230",
-                "title": "Rule Essential Details [Logs Google SecOps]",
+                "title": "Rule Essential Details",
                 "type": "search"
             },
             {
@@ -1457,7 +1457,7 @@
                     "y": 58
                 },
                 "panelIndex": "0c26cc51-158d-48f2-bb23-8f996391fb3d",
-                "title": "Top 10 Destination IP ",
+                "title": "Top 10 Destination IP",
                 "type": "lens"
             }
         ],

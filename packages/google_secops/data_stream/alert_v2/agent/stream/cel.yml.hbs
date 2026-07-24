@@ -43,8 +43,8 @@ program: |
       "GET",
       state.url.trim_right("/") + "/v1alpha/projects/" + state.project_id + "/locations/" + state.location + "/instances/" + state.instance_id + "/legacy:legacySearchDetections?" + {
         "ruleId": ["-"],
-        "startTime": [string(state.cursor.start_time)],
-        "endTime": [string(state.cursor.end_time)],
+        "startTime": [state.cursor.start_time],
+        "endTime": [state.cursor.end_time],
         "pageSize": [string(state.page_size)],
         "listBasis": ["DETECTION_TIME"],
         ?"pageToken": state.?cursor.?next_page.?token.optMap(v, [string(v)]),
@@ -55,8 +55,8 @@ program: |
           "events": (
             has(body.detections) ?
               body.detections.map(d,
-                d.?collectionElements.orValue([]).map(ce,
-                  ce.?references.orValue([]).map(result, {
+                d.?collectionElements.orValue([]).map(ce, has(ce.references),
+                  ce.references.map(result, {
                     "message":{
                       ?"type": d.?type,
                       ?"detection": d.?detection,
@@ -83,12 +83,7 @@ program: |
               :
                 optional.of(state.cursor.end_time)
             ),
-            ?"next_page": has(body.nextPageToken) ?
-              optional.of({
-                "token": body.nextPageToken,
-              })
-            :
-              optional.none(),
+            ?"next_page": body.?nextPageToken.optMap(t, {"token": t}),
           },
         })
       )
@@ -97,12 +92,12 @@ program: |
         "events": {
           "error": {
             "code": string(resp.StatusCode),
-            "id": string(resp.Status),
+            "id": resp.Status,
             "message": "GET " + state.url.trim_right("/") + "/v1alpha/projects/" + state.project_id + "/locations/" + state.location + "/instances/" + state.instance_id + "/legacy:legacySearchDetections: " + (
               size(resp.Body) != 0 ?
                 string(resp.Body)
               :
-                string(resp.Status) + ' (' + string(resp.StatusCode) + ')'
+                resp.Status + ' (' + string(resp.StatusCode) + ')'
             ),
           },
         },

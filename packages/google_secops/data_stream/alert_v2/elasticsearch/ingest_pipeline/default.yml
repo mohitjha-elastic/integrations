@@ -215,21 +215,21 @@ processors:
         if (ctx.google_secops?.alert_v2?.event?.security_result instanceof List) {
           for (list in ctx.google_secops?.alert_v2?.event.security_result) {
             if (list["severity"] != null && list["severity"] != '') {
-              if (list["severity"].toUpperCase() == 'CRITICAL') {
+              if (list["severity"].equalsIgnoreCase('critical')) {
                 ctx.event.severity = 99
-              } else if (list["severity"].toUpperCase() == 'ERROR') {
+              } else if (list["severity"].equalsIgnoreCase('error')) {
                 ctx.event.severity = 99
-              } else if (list["severity"].toUpperCase() == 'HIGH') {
+              } else if (list["severity"].equalsIgnoreCase('high')) {
                 ctx.event.severity = 73
-              } else if (list["severity"].toUpperCase() == 'INFORMATIONAL') {
+              } else if (list["severity"].equalsIgnoreCase('informational')) {
                 ctx.event.severity = 21
-              }  else if (list["severity"].toUpperCase() == 'LOW') {
+              }  else if (list["severity"].equalsIgnoreCase('low')) {
                 ctx.event.severity = 21
-              } else if (list["severity"].toUpperCase() == 'MEDIUM') {
+              } else if (list["severity"].equalsIgnoreCase('medium')) {
                 ctx.event.severity = 47
-              } else if (list["severity"].toUpperCase() == 'NONE') {
+              } else if (list["severity"].equalsIgnoreCase('none')) {
                 ctx.event.severity = 21
-              } else if (list["severity"].toUpperCase() == 'UNKNOWN_SEVERITY') {
+              } else if (list["severity"].equalsIgnoreCase('unknown_severity')) {
                 ctx.event.severity = 21
               }
             }
