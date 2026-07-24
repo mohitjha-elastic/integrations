@@ -2295,9 +2295,6 @@ An example event for `alert_v2` looks as following:
 | google_secops.alert_v2.detection.detection_fields | Fields specified in the rule for "MULTI_EVENT" rules, keyed by field name. | flattened |
 | google_secops.alert_v2.detection.outcomes | Outcome variables from the detection rule, keyed by outcome name. | flattened |
 | google_secops.alert_v2.detection.risk_score |  | long |
-| google_secops.alert_v2.detection.risk_score.int64_val |  | long |
-| google_secops.alert_v2.detection.risk_score.type |  | keyword |
-| google_secops.alert_v2.detection.risk_score.value |  | long |
 | google_secops.alert_v2.detection.rule_id | Identifier for the rule generating the detection. | keyword |
 | google_secops.alert_v2.detection.rule_labels | Rule metadata labels from the detection, keyed by label name. | flattened |
 | google_secops.alert_v2.detection.rule_name | Name of the rule generating the detection, as parsed from `ruleText`. | keyword |
