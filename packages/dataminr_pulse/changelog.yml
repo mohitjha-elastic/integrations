@@ -17,9 +17,9 @@
   changes:
     - description: Enable for 9.x stacks.
       type: enhancement
-      link: https://github.com/elastic/integrations/issues/19122
+      link: https://github.com/elastic/integrations/pull/19122
 - version: "0.1.0"
   changes:
     - description: Initial release.
       type: enhancement
-      link: https://github.com/elastic/integrations/issues/17886
+      link: https://github.com/elastic/integrations/pull/17886

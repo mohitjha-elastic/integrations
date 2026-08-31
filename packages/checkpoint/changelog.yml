@@ -33,7 +33,7 @@
   changes:
     - description: Prevent firewall ingest failures when packets contains tuple data and map packet counts from packet_amount.
       type: bugfix
-      link: https://github.com/elastic/integrations/issues/18191
+      link: https://github.com/elastic/integrations/pull/18191
 - version: "1.45.3"
   changes:
     - description: Fix README ssl settings reference.

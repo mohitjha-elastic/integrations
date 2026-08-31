@@ -64,7 +64,7 @@ processors:
   # apply the correct routing rules.
   #
   # Refs;
-  # - https://github.com/elastic/integrations/issues/15206
+  # - https://github.com/elastic/integrations/pull/15206
   - rename:
       tag: rename_tmp_json_CategoryValue_to_routing_category_8944cf60
       field: tmp_json.CategoryValue
