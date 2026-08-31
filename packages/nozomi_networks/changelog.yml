@@ -4,6 +4,11 @@
     - description: Update Elastic Managed integration documentation to the current wording and docs links.
       type: enhancement
       link: https://github.com/elastic/integrations/pull/1
+- version: "0.4.2"
+  changes:
+    - description: Surface Nozomi query errors returned in HTTP 200 responses instead of silently collecting no data.
+      type: bugfix
+      link: https://github.com/elastic/integrations/pull/20936
 - version: "0.4.1"
   changes:
     - description: Fix pipeline errors on string epoch uptime values, non-numeric variable values, and comma-separated audit IP addresses.
