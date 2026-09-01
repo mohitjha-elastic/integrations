@@ -33,17 +33,17 @@
   changes:
     - description: "Reverting Session data option"
       type: bugfix
-      link: https://github.com/elastic/integrations/pull/11420
+      link: https://github.com/elastic/integrations/issues/11420
 - version: "1.18.0"
   changes:
     - description: "Added Session data option"
       type: enhancement
-      link: https://github.com/elastic/integrations/pull/11336
+      link: https://github.com/elastic/integrations/issues/11336
 - version: "1.17.1"
   changes:
     - description: "Doc: Add doc for configuring Auditd Manager for Session View"
       type: enhancement
-      link: https://github.com/elastic/integrations/pull/10499
+      link: https://github.com/elastic/integrations/issues/10499
 - version: "1.17.0"
   changes:
     - description: "Allow @custom pipeline access to event.original without setting preserve_original_event."
@@ -53,7 +53,7 @@
   changes:
     - description: Fix `audit_rule_files`
       type: bugfix
-      link: https://github.com/elastic/integrations/pull/10000
+      link: https://github.com/elastic/integrations/issues/10000
 - version: "1.16.3"
   changes:
     - description: capture root requirement

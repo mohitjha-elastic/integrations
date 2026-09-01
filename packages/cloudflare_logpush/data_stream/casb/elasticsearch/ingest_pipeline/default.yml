@@ -127,7 +127,7 @@ processors:
       field: json.FindingTypeSeverity
       target_field: cloudflare_logpush.casb.finding.type.severity
       ignore_missing: true
-  # Normalize the vendor severity to Elastic's severity scale. Elastic Security detection rules follow the scale mentioned in https://github.com/elastic/integrations/pull/12662
+  # Normalize the vendor severity to Elastic's severity scale. Elastic Security detection rules follow the scale mentioned in https://github.com/elastic/integrations/issues/12662
   - script:
       description: Normalize the vendor severity to Elastic's severity scale.
       tag: script_to_normalize_severity

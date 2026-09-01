@@ -62,7 +62,7 @@ processors:
     # apply the correct timestamp processing.
     # 
     # Refs;
-    # - https://github.com/elastic/integrations/pull/15083  
+    # - https://github.com/elastic/integrations/issues/15083  
   - rename:
      tag: rename_azure_signinlogs_created_date_time_to_azure_signinlogs_time_526bdc94
      field: azure.signinlogs.created_date_time
