@@ -1,0 +1,45 @@
+{
+    "attributes": {
+        "columns": [
+            "user.name",
+            "snowflake.query_history.query_type",
+            "error.code",
+            "event.reason",
+            "snowflake.query_history.query_text"
+        ],
+        "description": "",
+        "grid": {},
+        "hideChart": false,
+        "isTextBasedQuery": false,
+        "kibanaSavedObjectMeta": {
+            "searchSourceJSON": {
+                "filter": [],
+                "indexRefName": "kibanaSavedObjectMeta.searchSourceJSON.index",
+                "query": {
+                    "language": "kuery",
+                    "query": "data_stream.dataset : \"snowflake.query_history\" and event.outcome : \"failure\""
+                }
+            }
+        },
+        "sort": [
+            [
+                "@timestamp",
+                "desc"
+            ]
+        ],
+        "timeRestore": false,
+        "title": "[Logs Snowflake] Failed Queries"
+    },
+    "coreMigrationVersion": "8.8.0",
+    "created_at": "2026-10-19T08:18:28.853Z",
+    "id": "snowflake-bf6b27cf-e827-481d-bf0c-582f26a6def0",
+    "references": [
+        {
+            "id": "logs-*",
+            "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+            "type": "index-pattern"
+        }
+    ],
+    "type": "search",
+    "typeMigrationVersion": "10.5.0"
+}

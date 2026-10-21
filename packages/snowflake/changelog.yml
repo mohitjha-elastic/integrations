@@ -1,0 +1,14 @@
+# newer versions go on top
+- version: "0.2.0"
+  changes:
+    - description: Add support for query_history, events, and external_access_history data streams.
+      type: enhancement
+      link: https://github.com/elastic/integrations/pull/1
+    - description: Add dashboard for access_history, data_transfer_history, and stages data stream.
+      type: enhancement
+      link: https://github.com/elastic/integrations/pull/1
+- version: "0.1.0"
+  changes:
+    - description: Initial release of the Snowflake integration with access_history, data_transfer_history, and stages data streams.
+      type: enhancement
+      link: https://github.com/elastic/integrations/pull/21995

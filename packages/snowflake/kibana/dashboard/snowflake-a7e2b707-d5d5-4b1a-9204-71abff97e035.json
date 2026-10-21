@@ -1,0 +1,1339 @@
+{
+    "attributes": {
+        "controlGroupInput": {
+            "chainingSystem": "HIERARCHICAL",
+            "controlStyle": "oneLine",
+            "ignoreParentSettingsJSON": {
+                "ignoreFilters": false,
+                "ignoreQuery": false,
+                "ignoreTimerange": false,
+                "ignoreValidations": false
+            },
+            "panelsJSON": {
+                "4d60fe98-ed95-4b7b-96c8-639479cd2ceb": {
+                    "explicitInput": {
+                        "dataViewId": "logs-*",
+                        "exclude": false,
+                        "existsSelected": false,
+                        "fieldName": "snowflake.data_transfer_history.transfer_type",
+                        "searchTechnique": "prefix",
+                        "selectedOptions": [],
+                        "sort": {
+                            "by": "_count",
+                            "direction": "desc"
+                        },
+                        "title": "Transfer Type"
+                    },
+                    "grow": true,
+                    "order": 1,
+                    "type": "optionsListControl",
+                    "width": "medium"
+                },
+                "9db63e6b-b387-4915-81ae-174942b79459": {
+                    "explicitInput": {
+                        "dataViewId": "logs-*",
+                        "exclude": false,
+                        "existsSelected": false,
+                        "fieldName": "user.name",
+                        "searchTechnique": "prefix",
+                        "selectedOptions": [],
+                        "sort": {
+                            "by": "_count",
+                            "direction": "desc"
+                        },
+                        "title": "User Name"
+                    },
+                    "grow": true,
+                    "order": 0,
+                    "type": "optionsListControl",
+                    "width": "medium"
+                }
+            },
+            "showApplySelections": false
+        },
+        "description": "Data access patterns across Snowflake access history, data transfer history, and stages inventory.",
+        "kibanaSavedObjectMeta": {
+            "searchSourceJSON": {
+                "filter": [
+                    {
+                        "$state": {
+                            "store": "appState"
+                        },
+                        "meta": {
+                            "alias": null,
+                            "disabled": false,
+                            "field": "data_stream.dataset",
+                            "indexRefName": "kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
+                            "key": "data_stream.dataset",
+                            "negate": false,
+                            "params": [
+                                "snowflake.access_history",
+                                "snowflake.data_transfer_history",
+                                "snowflake.stages"
+                            ],
+                            "type": "phrases"
+                        },
+                        "query": {
+                            "bool": {
+                                "minimum_should_match": 1,
+                                "should": [
+                                    {
+                                        "match_phrase": {
+                                            "data_stream.dataset": "snowflake.access_history"
+                                        }
+                                    },
+                                    {
+                                        "match_phrase": {
+                                            "data_stream.dataset": "snowflake.data_transfer_history"
+                                        }
+                                    },
+                                    {
+                                        "match_phrase": {
+                                            "data_stream.dataset": "snowflake.stages"
+                                        }
+                                    }
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "query": {
+                    "language": "kuery",
+                    "query": ""
+                }
+            }
+        },
+        "optionsJSON": {
+            "hidePanelTitles": false,
+            "syncColors": false,
+            "syncCursor": true,
+            "syncTooltips": false,
+            "useMargins": true
+        },
+        "panelsJSON": [
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "layout": "vertical",
+                        "links": [
+                            {
+                                "destinationRefName": "link_10cfe5fd-b9f7-4731-8528-9e91ef8d37e2_dashboard",
+                                "id": "10cfe5fd-b9f7-4731-8528-9e91ef8d37e2",
+                                "label": "Data Access Patterns",
+                                "options": {
+                                    "openInNewTab": false,
+                                    "useCurrentDateRange": true,
+                                    "useCurrentFilters": false
+                                },
+                                "order": 0,
+                                "type": "dashboardLink"
+                            }
+                        ]
+                    },
+                    "title": "Navigation"
+                },
+                "gridData": {
+                    "h": 8,
+                    "i": "c97192b2-9e6c-42a2-b466-181ba6e875f8",
+                    "w": 12,
+                    "x": 0,
+                    "y": 0
+                },
+                "panelIndex": "c97192b2-9e6c-42a2-b466-181ba6e875f8",
+                "type": "links"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-73e748c4-1fbf-47ce-bf9a-237f725557bd",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "layers": {
+                                        "73e748c4-1fbf-47ce-bf9a-237f725557bd": {
+                                            "columnOrder": [
+                                                "1ba664d3-3ec4-4901-8593-d72813368c3a"
+                                            ],
+                                            "columns": {
+                                                "1ba664d3-3ec4-4901-8593-d72813368c3a": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Access Queries",
+                                                    "operationType": "count",
+                                                    "params": {
+                                                        "emptyAsNull": false
+                                                    },
+                                                    "sourceField": "___records___"
+                                                }
+                                            },
+                                            "ignoreGlobalFilters": false,
+                                            "incompleteColumns": {},
+                                            "sampling": 1
+                                        }
+                                    }
+                                },
+                                "indexpattern": {
+                                    "layers": {}
+                                },
+                                "textBased": {
+                                    "layers": {}
+                                }
+                            },
+                            "filters": [
+                                {
+                                    "$state": {
+                                        "store": "appState"
+                                    },
+                                    "meta": {
+                                        "alias": null,
+                                        "disabled": false,
+                                        "field": "data_stream.dataset",
+                                        "index": "logs-*",
+                                        "key": "data_stream.dataset",
+                                        "negate": false,
+                                        "params": {
+                                            "query": "snowflake.access_history"
+                                        },
+                                        "type": "phrase"
+                                    },
+                                    "query": {
+                                        "match_phrase": {
+                                            "data_stream.dataset": "snowflake.access_history"
+                                        }
+                                    }
+                                }
+                            ],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": ""
+                            },
+                            "visualization": {
+                                "color": "#6092C0",
+                                "layerId": "73e748c4-1fbf-47ce-bf9a-237f725557bd",
+                                "layerType": "data",
+                                "metricAccessor": "1ba664d3-3ec4-4901-8593-d72813368c3a",
+                                "showBar": false
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsMetric"
+                    },
+                    "enhancements": {},
+                    "filters": [],
+                    "hidePanelTitles": true,
+                    "query": {
+                        "language": "kuery",
+                        "query": ""
+                    },
+                    "title": "Access Queries"
+                },
+                "gridData": {
+                    "h": 11,
+                    "i": "2ae66cd1-4333-4371-9b2a-5023959d47f2",
+                    "w": 8,
+                    "x": 12,
+                    "y": 0
+                },
+                "panelIndex": "2ae66cd1-4333-4371-9b2a-5023959d47f2",
+                "type": "lens"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-d510f32c-43a6-49d3-98bd-1b5ba97fb55c",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "layers": {
+                                        "d510f32c-43a6-49d3-98bd-1b5ba97fb55c": {
+                                            "columnOrder": [
+                                                "216e2ca2-8b9e-492c-8dcc-970fdf4e9a87"
+                                            ],
+                                            "columns": {
+                                                "216e2ca2-8b9e-492c-8dcc-970fdf4e9a87": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Bytes Transferred",
+                                                    "operationType": "sum",
+                                                    "params": {
+                                                        "emptyAsNull": false,
+                                                        "format": {
+                                                            "id": "bytes",
+                                                            "params": {
+                                                                "decimals": 0
+                                                            }
+                                                        }
+                                                    },
+                                                    "sourceField": "network.bytes"
+                                                }
+                                            },
+                                            "ignoreGlobalFilters": false,
+                                            "incompleteColumns": {},
+                                            "sampling": 1
+                                        }
+                                    }
+                                },
+                                "indexpattern": {
+                                    "layers": {}
+                                },
+                                "textBased": {
+                                    "layers": {}
+                                }
+                            },
+                            "filters": [
+                                {
+                                    "$state": {
+                                        "store": "appState"
+                                    },
+                                    "meta": {
+                                        "alias": null,
+                                        "disabled": false,
+                                        "field": "data_stream.dataset",
+                                        "index": "logs-*",
+                                        "key": "data_stream.dataset",
+                                        "negate": false,
+                                        "params": {
+                                            "query": "snowflake.data_transfer_history"
+                                        },
+                                        "type": "phrase"
+                                    },
+                                    "query": {
+                                        "match_phrase": {
+                                            "data_stream.dataset": "snowflake.data_transfer_history"
+                                        }
+                                    }
+                                }
+                            ],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": ""
+                            },
+                            "visualization": {
+                                "color": "#6092C0",
+                                "layerId": "d510f32c-43a6-49d3-98bd-1b5ba97fb55c",
+                                "layerType": "data",
+                                "metricAccessor": "216e2ca2-8b9e-492c-8dcc-970fdf4e9a87",
+                                "showBar": false
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsMetric"
+                    },
+                    "enhancements": {},
+                    "filters": [],
+                    "hidePanelTitles": true,
+                    "query": {
+                        "language": "kuery",
+                        "query": ""
+                    },
+                    "title": "Bytes Transferred"
+                },
+                "gridData": {
+                    "h": 11,
+                    "i": "47dd6e78-39d0-4aef-9da4-3cada51dfd53",
+                    "w": 8,
+                    "x": 20,
+                    "y": 0
+                },
+                "panelIndex": "47dd6e78-39d0-4aef-9da4-3cada51dfd53",
+                "type": "lens"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-6ae0cc1e-d6d6-4d56-862b-db3898db14ef",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "layers": {
+                                        "6ae0cc1e-d6d6-4d56-862b-db3898db14ef": {
+                                            "columnOrder": [
+                                                "64887aec-0814-452c-803f-772b14fefe86",
+                                                "0011f8c1-abe2-4d7d-85a4-ef826129e132"
+                                            ],
+                                            "columns": {
+                                                "0011f8c1-abe2-4d7d-85a4-ef826129e132": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Bytes Transferred",
+                                                    "operationType": "sum",
+                                                    "params": {
+                                                        "emptyAsNull": false,
+                                                        "format": {
+                                                            "id": "bytes",
+                                                            "params": {
+                                                                "decimals": 0
+                                                            }
+                                                        }
+                                                    },
+                                                    "sourceField": "network.bytes"
+                                                },
+                                                "64887aec-0814-452c-803f-772b14fefe86": {
+                                                    "dataType": "date",
+                                                    "isBucketed": true,
+                                                    "label": "@timestamp",
+                                                    "operationType": "date_histogram",
+                                                    "params": {
+                                                        "dropPartials": false,
+                                                        "includeEmptyRows": true,
+                                                        "interval": "auto"
+                                                    },
+                                                    "sourceField": "@timestamp"
+                                                }
+                                            },
+                                            "ignoreGlobalFilters": false,
+                                            "incompleteColumns": {},
+                                            "sampling": 1
+                                        }
+                                    }
+                                },
+                                "indexpattern": {
+                                    "layers": {}
+                                },
+                                "textBased": {
+                                    "layers": {}
+                                }
+                            },
+                            "filters": [
+                                {
+                                    "$state": {
+                                        "store": "appState"
+                                    },
+                                    "meta": {
+                                        "alias": null,
+                                        "disabled": false,
+                                        "field": "data_stream.dataset",
+                                        "index": "logs-*",
+                                        "key": "data_stream.dataset",
+                                        "negate": false,
+                                        "params": {
+                                            "query": "snowflake.data_transfer_history"
+                                        },
+                                        "type": "phrase"
+                                    },
+                                    "query": {
+                                        "match_phrase": {
+                                            "data_stream.dataset": "snowflake.data_transfer_history"
+                                        }
+                                    }
+                                }
+                            ],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": ""
+                            },
+                            "visualization": {
+                                "layers": [
+                                    {
+                                        "accessors": [
+                                            "0011f8c1-abe2-4d7d-85a4-ef826129e132"
+                                        ],
+                                        "layerId": "6ae0cc1e-d6d6-4d56-862b-db3898db14ef",
+                                        "layerType": "data",
+                                        "seriesType": "line",
+                                        "xAccessor": "64887aec-0814-452c-803f-772b14fefe86"
+                                    }
+                                ],
+                                "legend": {
+                                    "isVisible": true,
+                                    "position": "right",
+                                    "shouldTruncate": false
+                                },
+                                "preferredSeriesType": "line",
+                                "valueLabels": "hide"
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsXY"
+                    },
+                    "enhancements": {},
+                    "filters": [],
+                    "query": {
+                        "language": "kuery",
+                        "query": ""
+                    },
+                    "title": "Data Transfer Volume over Time"
+                },
+                "gridData": {
+                    "h": 11,
+                    "i": "f9ea6809-ea28-4f09-a06b-8264d35d22ef",
+                    "w": 20,
+                    "x": 28,
+                    "y": 0
+                },
+                "panelIndex": "f9ea6809-ea28-4f09-a06b-8264d35d22ef",
+                "type": "lens"
+            },
+            {
+                "embeddableConfig": {
+                    "enhancements": {
+                        "dynamicActions": {
+                            "events": []
+                        }
+                    },
+                    "savedVis": {
+                        "data": {
+                            "aggs": [],
+                            "searchSource": {
+                                "filter": [],
+                                "query": {
+                                    "language": "kuery",
+                                    "query": ""
+                                }
+                            }
+                        },
+                        "description": "",
+                        "params": {
+                            "fontSize": 12,
+                            "markdown": "This dashboard combines Snowflake access history, data transfer history, and stages inventory to highlight how data is queried, moved, and exposed. It surfaces top accessed objects and users, transfer volume trends, external transfer activity, and external stage configuration. Use the controls to filter by  user, and transfer type.\n\n**[Integration Page](/app/integrations/detail/snowflake/overview)**\n",
+                            "openLinksInNewTab": false
+                        },
+                        "title": "",
+                        "type": "markdown",
+                        "uiState": {}
+                    },
+                    "title": "Overview"
+                },
+                "gridData": {
+                    "h": 18,
+                    "i": "634f1f01-26e1-439e-85f4-7a3b6934850c",
+                    "w": 12,
+                    "x": 0,
+                    "y": 8
+                },
+                "panelIndex": "634f1f01-26e1-439e-85f4-7a3b6934850c",
+                "type": "visualization"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-fb2736e7-346a-45f5-90a8-f1ccf23a3bac",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "layers": {
+                                        "fb2736e7-346a-45f5-90a8-f1ccf23a3bac": {
+                                            "columnOrder": [
+                                                "ec8458db-98be-4cd9-8552-05e073d0f80f",
+                                                "4feda0ca-074b-42c0-ad81-4768d174b3f8"
+                                            ],
+                                            "columns": {
+                                                "4feda0ca-074b-42c0-ad81-4768d174b3f8": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Count",
+                                                    "operationType": "count",
+                                                    "params": {
+                                                        "emptyAsNull": false
+                                                    },
+                                                    "sourceField": "___records___"
+                                                },
+                                                "ec8458db-98be-4cd9-8552-05e073d0f80f": {
+                                                    "customLabel": true,
+                                                    "dataType": "string",
+                                                    "isBucketed": true,
+                                                    "label": "Object Name",
+                                                    "operationType": "terms",
+                                                    "params": {
+                                                        "missingBucket": false,
+                                                        "orderBy": {
+                                                            "columnId": "4feda0ca-074b-42c0-ad81-4768d174b3f8",
+                                                            "type": "column"
+                                                        },
+                                                        "orderDirection": "desc",
+                                                        "otherBucket": true,
+                                                        "parentFormat": {
+                                                            "id": "terms"
+                                                        },
+                                                        "size": 10
+                                                    },
+                                                    "sourceField": "snowflake.access_history.base_objects_accessed_names"
+                                                }
+                                            },
+                                            "ignoreGlobalFilters": false,
+                                            "incompleteColumns": {},
+                                            "sampling": 1
+                                        }
+                                    }
+                                },
+                                "indexpattern": {
+                                    "layers": {}
+                                },
+                                "textBased": {
+                                    "layers": {}
+                                }
+                            },
+                            "filters": [
+                                {
+                                    "$state": {
+                                        "store": "appState"
+                                    },
+                                    "meta": {
+                                        "alias": null,
+                                        "disabled": false,
+                                        "field": "data_stream.dataset",
+                                        "index": "logs-*",
+                                        "key": "data_stream.dataset",
+                                        "negate": false,
+                                        "params": {
+                                            "query": "snowflake.access_history"
+                                        },
+                                        "type": "phrase"
+                                    },
+                                    "query": {
+                                        "match_phrase": {
+                                            "data_stream.dataset": "snowflake.access_history"
+                                        }
+                                    }
+                                }
+                            ],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": ""
+                            },
+                            "visualization": {
+                                "layers": [
+                                    {
+                                        "accessors": [
+                                            "4feda0ca-074b-42c0-ad81-4768d174b3f8"
+                                        ],
+                                        "layerId": "fb2736e7-346a-45f5-90a8-f1ccf23a3bac",
+                                        "layerType": "data",
+                                        "seriesType": "bar_horizontal",
+                                        "xAccessor": "ec8458db-98be-4cd9-8552-05e073d0f80f"
+                                    }
+                                ],
+                                "legend": {
+                                    "isVisible": true,
+                                    "position": "right",
+                                    "shouldTruncate": false
+                                },
+                                "preferredSeriesType": "bar_horizontal",
+                                "valueLabels": "hide"
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsXY"
+                    },
+                    "enhancements": {},
+                    "filters": [],
+                    "query": {
+                        "language": "kuery",
+                        "query": ""
+                    },
+                    "title": "Top Accessed Tables and Views"
+                },
+                "gridData": {
+                    "h": 15,
+                    "i": "e797937e-4651-45db-9abc-9afd15c7dd3c",
+                    "w": 12,
+                    "x": 12,
+                    "y": 11
+                },
+                "panelIndex": "e797937e-4651-45db-9abc-9afd15c7dd3c",
+                "type": "lens"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-399b4822-db45-44e6-bf02-24f2463d08f7",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "layers": {
+                                        "399b4822-db45-44e6-bf02-24f2463d08f7": {
+                                            "columnOrder": [
+                                                "5b3eccac-0738-4513-ad72-c4fa67bb4f2c",
+                                                "ef1a4d93-2486-44f6-a072-d1475e04a091"
+                                            ],
+                                            "columns": {
+                                                "5b3eccac-0738-4513-ad72-c4fa67bb4f2c": {
+                                                    "customLabel": true,
+                                                    "dataType": "string",
+                                                    "isBucketed": true,
+                                                    "label": "Transfer Type",
+                                                    "operationType": "terms",
+                                                    "params": {
+                                                        "missingBucket": false,
+                                                        "orderBy": {
+                                                            "columnId": "ef1a4d93-2486-44f6-a072-d1475e04a091",
+                                                            "type": "column"
+                                                        },
+                                                        "orderDirection": "desc",
+                                                        "otherBucket": false,
+                                                        "parentFormat": {
+                                                            "id": "terms"
+                                                        },
+                                                        "size": 5
+                                                    },
+                                                    "sourceField": "snowflake.data_transfer_history.transfer_type"
+                                                },
+                                                "ef1a4d93-2486-44f6-a072-d1475e04a091": {
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Count",
+                                                    "operationType": "count",
+                                                    "params": {
+                                                        "emptyAsNull": false
+                                                    },
+                                                    "sourceField": "___records___"
+                                                }
+                                            },
+                                            "ignoreGlobalFilters": false,
+                                            "incompleteColumns": {},
+                                            "sampling": 1
+                                        }
+                                    }
+                                },
+                                "indexpattern": {
+                                    "layers": {}
+                                },
+                                "textBased": {
+                                    "layers": {}
+                                }
+                            },
+                            "filters": [
+                                {
+                                    "$state": {
+                                        "store": "appState"
+                                    },
+                                    "meta": {
+                                        "alias": null,
+                                        "disabled": false,
+                                        "field": "data_stream.dataset",
+                                        "index": "logs-*",
+                                        "key": "data_stream.dataset",
+                                        "negate": false,
+                                        "params": {
+                                            "query": "snowflake.data_transfer_history"
+                                        },
+                                        "type": "phrase"
+                                    },
+                                    "query": {
+                                        "match_phrase": {
+                                            "data_stream.dataset": "snowflake.data_transfer_history"
+                                        }
+                                    }
+                                }
+                            ],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": ""
+                            },
+                            "visualization": {
+                                "layers": [
+                                    {
+                                        "categoryDisplay": "default",
+                                        "layerId": "399b4822-db45-44e6-bf02-24f2463d08f7",
+                                        "layerType": "data",
+                                        "legendDisplay": "show",
+                                        "metrics": [
+                                            "ef1a4d93-2486-44f6-a072-d1475e04a091"
+                                        ],
+                                        "nestedLegend": false,
+                                        "numberDisplay": "percent",
+                                        "primaryGroups": [
+                                            "5b3eccac-0738-4513-ad72-c4fa67bb4f2c"
+                                        ],
+                                        "truncateLegend": false
+                                    }
+                                ],
+                                "shape": "pie"
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsPie"
+                    },
+                    "enhancements": {},
+                    "filters": [],
+                    "query": {
+                        "language": "kuery",
+                        "query": ""
+                    },
+                    "title": "Transfer Types"
+                },
+                "gridData": {
+                    "h": 15,
+                    "i": "3b1b2c5a-a95e-4483-8553-0eeb06d041a6",
+                    "w": 12,
+                    "x": 24,
+                    "y": 11
+                },
+                "panelIndex": "3b1b2c5a-a95e-4483-8553-0eeb06d041a6",
+                "type": "lens"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-ef0bf49c-da69-4b24-9847-f92a5c84ede1",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "currentIndexPatternId": "logs-*",
+                                    "layers": {
+                                        "ef0bf49c-da69-4b24-9847-f92a5c84ede1": {
+                                            "columnOrder": [
+                                                "b7474df8-f480-4442-bf2a-bbbef92f4055",
+                                                "70e12469-b445-403f-8bf5-43a8095aa304"
+                                            ],
+                                            "columns": {
+                                                "70e12469-b445-403f-8bf5-43a8095aa304": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Count",
+                                                    "operationType": "count",
+                                                    "params": {
+                                                        "emptyAsNull": false
+                                                    },
+                                                    "sourceField": "___records___"
+                                                },
+                                                "b7474df8-f480-4442-bf2a-bbbef92f4055": {
+                                                    "customLabel": true,
+                                                    "dataType": "string",
+                                                    "isBucketed": true,
+                                                    "label": "User Name",
+                                                    "operationType": "terms",
+                                                    "params": {
+                                                        "missingBucket": false,
+                                                        "orderBy": {
+                                                            "columnId": "70e12469-b445-403f-8bf5-43a8095aa304",
+                                                            "type": "column"
+                                                        },
+                                                        "orderDirection": "desc",
+                                                        "otherBucket": true,
+                                                        "parentFormat": {
+                                                            "id": "terms"
+                                                        },
+                                                        "size": 10
+                                                    },
+                                                    "sourceField": "user.name"
+                                                }
+                                            },
+                                            "ignoreGlobalFilters": false,
+                                            "incompleteColumns": {},
+                                            "indexPatternId": "logs-*",
+                                            "sampling": 1
+                                        }
+                                    }
+                                },
+                                "indexpattern": {
+                                    "currentIndexPatternId": "logs-*",
+                                    "layers": {}
+                                },
+                                "textBased": {
+                                    "indexPatternRefs": [
+                                        {
+                                            "id": "logs-*",
+                                            "timeField": "@timestamp",
+                                            "title": "logs-*"
+                                        }
+                                    ],
+                                    "layers": {}
+                                }
+                            },
+                            "filters": [
+                                {
+                                    "$state": {
+                                        "store": "appState"
+                                    },
+                                    "meta": {
+                                        "alias": null,
+                                        "disabled": false,
+                                        "field": "data_stream.dataset",
+                                        "index": "logs-*",
+                                        "key": "data_stream.dataset",
+                                        "negate": false,
+                                        "params": {
+                                            "query": "snowflake.access_history"
+                                        },
+                                        "type": "phrase"
+                                    },
+                                    "query": {
+                                        "match_phrase": {
+                                            "data_stream.dataset": "snowflake.access_history"
+                                        }
+                                    }
+                                }
+                            ],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": ""
+                            },
+                            "visualization": {
+                                "layers": [
+                                    {
+                                        "accessors": [
+                                            "70e12469-b445-403f-8bf5-43a8095aa304"
+                                        ],
+                                        "layerId": "ef0bf49c-da69-4b24-9847-f92a5c84ede1",
+                                        "layerType": "data",
+                                        "seriesType": "bar_horizontal",
+                                        "xAccessor": "b7474df8-f480-4442-bf2a-bbbef92f4055"
+                                    }
+                                ],
+                                "legend": {
+                                    "isVisible": true,
+                                    "position": "right",
+                                    "shouldTruncate": false
+                                },
+                                "preferredSeriesType": "bar",
+                                "valueLabels": "hide"
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsXY"
+                    },
+                    "enhancements": {
+                        "dynamicActions": {
+                            "events": []
+                        }
+                    },
+                    "filters": [
+                        {
+                            "$state": {
+                                "store": "appState"
+                            },
+                            "meta": {
+                                "alias": null,
+                                "disabled": false,
+                                "field": "data_stream.dataset",
+                                "index": "logs-*",
+                                "key": "data_stream.dataset",
+                                "negate": false,
+                                "params": {
+                                    "query": "snowflake.access_history"
+                                },
+                                "type": "phrase"
+                            },
+                            "query": {
+                                "match_phrase": {
+                                    "data_stream.dataset": "snowflake.access_history"
+                                }
+                            }
+                        }
+                    ],
+                    "query": {
+                        "language": "kuery",
+                        "query": ""
+                    },
+                    "syncColors": false,
+                    "syncCursor": true,
+                    "syncTooltips": false,
+                    "title": "Top Users by Access Activity"
+                },
+                "gridData": {
+                    "h": 15,
+                    "i": "1dc72d67-4bac-440d-bf38-a807c1891bd8",
+                    "w": 12,
+                    "x": 36,
+                    "y": 11
+                },
+                "panelIndex": "1dc72d67-4bac-440d-bf38-a807c1891bd8",
+                "type": "lens"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-0909aa19-3c02-41f4-880a-7cbecab21b49",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "layers": {
+                                        "0909aa19-3c02-41f4-880a-7cbecab21b49": {
+                                            "columnOrder": [
+                                                "ab488726-78b7-49e6-8029-afc2e4f3e194",
+                                                "ef1a4d93-2486-44f6-a072-d1475e04a091"
+                                            ],
+                                            "columns": {
+                                                "ab488726-78b7-49e6-8029-afc2e4f3e194": {
+                                                    "dataType": "date",
+                                                    "isBucketed": true,
+                                                    "label": "@timestamp",
+                                                    "operationType": "date_histogram",
+                                                    "params": {
+                                                        "dropPartials": false,
+                                                        "includeEmptyRows": true,
+                                                        "interval": "auto"
+                                                    },
+                                                    "sourceField": "@timestamp"
+                                                },
+                                                "ef1a4d93-2486-44f6-a072-d1475e04a091": {
+                                                    "customLabel": true,
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Count",
+                                                    "operationType": "count",
+                                                    "params": {
+                                                        "emptyAsNull": false
+                                                    },
+                                                    "sourceField": "___records___"
+                                                }
+                                            },
+                                            "ignoreGlobalFilters": false,
+                                            "incompleteColumns": {},
+                                            "sampling": 1
+                                        }
+                                    }
+                                },
+                                "indexpattern": {
+                                    "layers": {}
+                                },
+                                "textBased": {
+                                    "layers": {}
+                                }
+                            },
+                            "filters": [
+                                {
+                                    "$state": {
+                                        "store": "appState"
+                                    },
+                                    "meta": {
+                                        "alias": null,
+                                        "disabled": false,
+                                        "field": "data_stream.dataset",
+                                        "index": "logs-*",
+                                        "key": "data_stream.dataset",
+                                        "negate": false,
+                                        "params": {
+                                            "query": "snowflake.access_history"
+                                        },
+                                        "type": "phrase"
+                                    },
+                                    "query": {
+                                        "match_phrase": {
+                                            "data_stream.dataset": "snowflake.access_history"
+                                        }
+                                    }
+                                }
+                            ],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": ""
+                            },
+                            "visualization": {
+                                "layers": [
+                                    {
+                                        "accessors": [
+                                            "ef1a4d93-2486-44f6-a072-d1475e04a091"
+                                        ],
+                                        "layerId": "0909aa19-3c02-41f4-880a-7cbecab21b49",
+                                        "layerType": "data",
+                                        "seriesType": "line",
+                                        "xAccessor": "ab488726-78b7-49e6-8029-afc2e4f3e194"
+                                    }
+                                ],
+                                "legend": {
+                                    "isVisible": true,
+                                    "position": "right",
+                                    "shouldTruncate": false
+                                },
+                                "preferredSeriesType": "line",
+                                "valueLabels": "hide"
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsXY"
+                    },
+                    "enhancements": {},
+                    "filters": [],
+                    "query": {
+                        "language": "kuery",
+                        "query": ""
+                    },
+                    "title": "Access Queries over Time"
+                },
+                "gridData": {
+                    "h": 15,
+                    "i": "216e2ca2-8b9e-492c-8dcc-970fdf4e9a87",
+                    "w": 28,
+                    "x": 0,
+                    "y": 26
+                },
+                "panelIndex": "216e2ca2-8b9e-492c-8dcc-970fdf4e9a87",
+                "type": "lens"
+            },
+            {
+                "embeddableConfig": {
+                    "attributes": {
+                        "references": [
+                            {
+                                "id": "logs-*",
+                                "name": "indexpattern-datasource-layer-84c2a26b-1b44-4cbb-af7e-4e857465e6f8",
+                                "type": "index-pattern"
+                            }
+                        ],
+                        "state": {
+                            "adHocDataViews": {},
+                            "datasourceStates": {
+                                "formBased": {
+                                    "layers": {
+                                        "84c2a26b-1b44-4cbb-af7e-4e857465e6f8": {
+                                            "columnOrder": [
+                                                "9db63e6b-b387-4915-81ae-174942b79459",
+                                                "4d60fe98-ed95-4b7b-96c8-639479cd2ceb"
+                                            ],
+                                            "columns": {
+                                                "4d60fe98-ed95-4b7b-96c8-639479cd2ceb": {
+                                                    "dataType": "number",
+                                                    "isBucketed": false,
+                                                    "label": "Count",
+                                                    "operationType": "count",
+                                                    "params": {
+                                                        "emptyAsNull": false
+                                                    },
+                                                    "sourceField": "___records___"
+                                                },
+                                                "9db63e6b-b387-4915-81ae-174942b79459": {
+                                                    "customLabel": true,
+                                                    "dataType": "string",
+                                                    "isBucketed": true,
+                                                    "label": "Stage Type",
+                                                    "operationType": "terms",
+                                                    "params": {
+                                                        "missingBucket": false,
+                                                        "orderBy": {
+                                                            "columnId": "4d60fe98-ed95-4b7b-96c8-639479cd2ceb",
+                                                            "type": "column"
+                                                        },
+                                                        "orderDirection": "desc",
+                                                        "otherBucket": false,
+                                                        "parentFormat": {
+                                                            "id": "terms"
+                                                        },
+                                                        "size": 5
+                                                    },
+                                                    "sourceField": "snowflake.stages.stage_type"
+                                                }
+                                            },
+                                            "ignoreGlobalFilters": false,
+                                            "incompleteColumns": {},
+                                            "sampling": 1
+                                        }
+                                    }
+                                },
+                                "indexpattern": {
+                                    "layers": {}
+                                },
+                                "textBased": {
+                                    "layers": {}
+                                }
+                            },
+                            "filters": [
+                                {
+                                    "$state": {
+                                        "store": "appState"
+                                    },
+                                    "meta": {
+                                        "alias": null,
+                                        "disabled": false,
+                                        "field": "data_stream.dataset",
+                                        "index": "logs-*",
+                                        "key": "data_stream.dataset",
+                                        "negate": false,
+                                        "params": {
+                                            "query": "snowflake.stages"
+                                        },
+                                        "type": "phrase"
+                                    },
+                                    "query": {
+                                        "match_phrase": {
+                                            "data_stream.dataset": "snowflake.stages"
+                                        }
+                                    }
+                                }
+                            ],
+                            "internalReferences": [],
+                            "query": {
+                                "language": "kuery",
+                                "query": ""
+                            },
+                            "visualization": {
+                                "layers": [
+                                    {
+                                        "categoryDisplay": "default",
+                                        "layerId": "84c2a26b-1b44-4cbb-af7e-4e857465e6f8",
+                                        "layerType": "data",
+                                        "legendDisplay": "show",
+                                        "metrics": [
+                                            "4d60fe98-ed95-4b7b-96c8-639479cd2ceb"
+                                        ],
+                                        "nestedLegend": false,
+                                        "numberDisplay": "percent",
+                                        "primaryGroups": [
+                                            "9db63e6b-b387-4915-81ae-174942b79459"
+                                        ],
+                                        "truncateLegend": false
+                                    }
+                                ],
+                                "shape": "pie"
+                            }
+                        },
+                        "title": "",
+                        "type": "lens",
+                        "visualizationType": "lnsPie"
+                    },
+                    "enhancements": {},
+                    "filters": [],
+                    "query": {
+                        "language": "kuery",
+                        "query": ""
+                    },
+                    "title": "Stage Types"
+                },
+                "gridData": {
+                    "h": 15,
+                    "i": "73e748c4-1fbf-47ce-bf9a-237f725557bd",
+                    "w": 20,
+                    "x": 28,
+                    "y": 26
+                },
+                "panelIndex": "73e748c4-1fbf-47ce-bf9a-237f725557bd",
+                "type": "lens"
+            }
+        ],
+        "timeRestore": false,
+        "title": "[Logs Snowflake] Data Access Patterns",
+        "version": 3
+    },
+    "coreMigrationVersion": "8.8.0",
+    "created_at": "2026-10-20T11:31:22.775Z",
+    "id": "snowflake-a7e2b707-d5d5-4b1a-9204-71abff97e035",
+    "references": [
+        {
+            "id": "logs-*",
+            "name": "kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
+            "type": "index-pattern"
+        },
+        {
+            "id": "snowflake-a7e2b707-d5d5-4b1a-9204-71abff97e035",
+            "name": "c97192b2-9e6c-42a2-b466-181ba6e875f8:link_10cfe5fd-b9f7-4731-8528-9e91ef8d37e2_dashboard",
+            "type": "dashboard"
+        },
+        {
+            "id": "logs-*",
+            "name": "2ae66cd1-4333-4371-9b2a-5023959d47f2:indexpattern-datasource-layer-73e748c4-1fbf-47ce-bf9a-237f725557bd",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "47dd6e78-39d0-4aef-9da4-3cada51dfd53:indexpattern-datasource-layer-d510f32c-43a6-49d3-98bd-1b5ba97fb55c",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "f9ea6809-ea28-4f09-a06b-8264d35d22ef:indexpattern-datasource-layer-6ae0cc1e-d6d6-4d56-862b-db3898db14ef",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "e797937e-4651-45db-9abc-9afd15c7dd3c:indexpattern-datasource-layer-fb2736e7-346a-45f5-90a8-f1ccf23a3bac",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "3b1b2c5a-a95e-4483-8553-0eeb06d041a6:indexpattern-datasource-layer-399b4822-db45-44e6-bf02-24f2463d08f7",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "1dc72d67-4bac-440d-bf38-a807c1891bd8:indexpattern-datasource-layer-ef0bf49c-da69-4b24-9847-f92a5c84ede1",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "216e2ca2-8b9e-492c-8dcc-970fdf4e9a87:indexpattern-datasource-layer-0909aa19-3c02-41f4-880a-7cbecab21b49",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "73e748c4-1fbf-47ce-bf9a-237f725557bd:indexpattern-datasource-layer-84c2a26b-1b44-4cbb-af7e-4e857465e6f8",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "controlGroup_9db63e6b-b387-4915-81ae-174942b79459:optionsListDataView",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "controlGroup_4d60fe98-ed95-4b7b-96c8-639479cd2ceb:optionsListDataView",
+            "type": "index-pattern"
+        },
+        {
+            "id": "logs-*",
+            "name": "kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
+            "type": "index-pattern"
+        }
+    ],
+    "type": "dashboard",
+    "typeMigrationVersion": "10.3.0",
+    "updated_by": "u_mGBROF_q5bmFCATbLXAcCwKa0k8JvONAwSruelyKA5E_0"
+}
